@@ -1202,6 +1202,41 @@
   #1%
 }
 
+
+%% \subsection{Contrast Signal (Indigo Book R4.9)}\vspace{-8pt}
+%%
+%% The Indigo Book, 2.1 update (May 2026), adds a Contrast signal at R4.9. It
+%% juxtaposes authorities that are factually or legally distinguishable, where
+%% the distinction itself illuminates the proposition. Unlike Compare ... with
+%% ..., Contrast highlights a meaningful difference, and always takes a
+%% parenthetical explaining the basis for the distinction. The macro
+%% \cmd{contrast} typesets the italicized signal.
+%%
+%% \begin{Example}
+%%   \verb|\contrast \emph{Terry v. Ohio} ... \emph{with} ...| \\
+%%   produces \emph{Contrast} ... \emph{with} ...
+%% \end{Example}
+%%
+\newcommand{\contrast}{\emph{Contrast}\xspace}
+
+%% \subsection{(Cleaned up) Parenthetical (Indigo Book R8.2.7)}\vspace{-8pt}
+%%
+%% The Indigo Book, 2.1 update (May 2026), recognizes the (cleaned up)
+%% parenthetical at R8.2.7. It signals that the writer made minor,
+%% non-substantive mechanical adjustments to a quotation, such as removing
+%% internal quotation marks, brackets, or embedded citations, without altering
+%% meaning. It was first used by the Supreme Court in Brownback v. King, 141 S.
+%% Ct. 740, 748 (2021). It may replace overlapping parentheticals like (internal
+%% quotation marks omitted) and (citation omitted). Do not use it to conceal
+%% material changes. The macro \cmd{cleanedup} typesets the parenthetical.
+%%
+%% \begin{Example}
+%%   \verb|... 397 U.S. 358, 364 (1970) \cleanedup| \\
+%%   produces ... 397 U.S. 358, 364 (1970) (cleaned up).
+%% \end{Example}
+%%
+\newcommand{\cleanedup}{(cleaned up)}
+
 %\endinput
 
 %%%\end{document}
