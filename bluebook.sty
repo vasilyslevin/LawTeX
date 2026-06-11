@@ -38,7 +38,7 @@
 %=========================END DOCUMENTATION PREAMBLE===========================
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{bluebook}[2011/11/11 Legal Bluebook-style Citations]
+\ProvidesPackage{bluebook}[2026/06/11 v3.0 Legal Bluebook-style Citations (2026 update)]
 
 \RequirePackage{ifthen}
 \RequirePackage{ifxetex}
@@ -1135,6 +1135,72 @@
 %% value. Note that it has no effect unless in lawreview mode.
 %% 
 \def\forcelongevery{5}
+
+%===============================================================================
+% 2026 UPDATE (v3.0): Medium-neutral citation helpers, F.4th, validation.
+% Reporters and case strings remain user-supplied literals; these macros add
+% convenience and guardrails consistent with the Indigo Book (rev. 2023) and
+% The Bluebook 22nd ed. (May 2025), verified against current state practice.
+%===============================================================================
+
+%% \section{2026 Updates}\vspace{-8pt}
+%%
+%% Version 3.0 (June 2026) adds helpers for medium-neutral (public domain)
+%% citation, the Federal Reporter Fourth Series, and a small validation hook.
+%% Reporter abbreviations and case strings are still supplied by the author as
+%% literal text; nothing about the core citation engine changed.
+%%
+
+%% \subsection{Paragraph Pinpoints}\vspace{-8pt}
+%%
+%% Medium-neutral jurisdictions pin to paragraph numbers rather than pages.
+%% Use \cmd{para} for a single paragraph and \cmd{pararange} for a range.
+%%
+%% \begin{Example}
+%%   \verb|\para{15}| produces \P~15. \\
+%%   \verb|\pararange{10}{15}| produces \P\P~10--15.
+%% \end{Example}
+%%
+\newcommand{\para}[1]{\P~#1}
+\newcommand{\pararange}[2]{\P\P~#1--#2}
+
+%% \subsection{Federal Reporter, Fourth Series}\vspace{-8pt}
+%%
+%% The Federal Reporter, Fourth Series (F.4th) began publication in 2021 and is
+%% the live reporter for the United States courts of appeals. The Federal
+%% Appendix (F. App'x) was discontinued in 2021. The convenience macro
+%% \cmd{citeFfourth} formats an F.4th cite; \cmd{citeFappx} still formats a
+%% Federal Appendix cite but emits a warning so authors verify it.
+%%
+%% \begin{Example}
+%%   \verb|\citeFfourth{10}{123}{5th Cir.}{2022}| \\
+%%   produces 10 F.4th 123 (5th Cir. 2022).
+%% \end{Example}
+%%
+\newcommand{\citeFfourth}[4]{#1 F.4th #2 (#3 #4)}
+\newcommand{\citeFappx}[4]{%
+  \PackageWarning{bluebook}{F. App'x was discontinued in 2021; verify this citation}%
+  #1 F.\ App'x #2 (#3 #4)%
+}
+
+%% \subsection{Medium-Neutral (Public Domain) States}\vspace{-8pt}
+%%
+%% As of 2026, sixteen states maintain an active official medium-neutral case
+%% designation: Arkansas, Colorado, Illinois, Louisiana, Maine, Mississippi,
+%% Montana, New Mexico, North Dakota, Ohio, Oklahoma, South Dakota, Utah,
+%% Vermont, Wisconsin, and Wyoming. North Carolina rescinded its universal
+%% citation system effective February 1, 2023; cite North Carolina cases in
+%% traditional reporter form (N.C. / N.C. App. / S.E.2d).
+%%
+%% The macro \cmd{NCneutral} exists only as a guarded escape hatch. It prints
+%% the supplied string but raises a package error reminding the author that the
+%% North Carolina neutral format is no longer current.
+%%
+\newcommand{\NCneutral}[1]{%
+  \PackageError{bluebook}{North Carolina public-domain citation was rescinded Feb. 1, 2023}%
+  {Use traditional N.C., N.C. App., and S.E.2d reporter citations instead.}%
+  #1%
+}
 
 %\endinput
 

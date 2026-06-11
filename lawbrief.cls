@@ -26,7 +26,7 @@
 
 \@ifundefined{SuppressClass}{%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lawbrief}
+\ProvidesClass{lawbrief}[2026/06/11 v3.0 LawTeX brief class (requires bluebook v3.0+)]
 \LoadClassWithOptions{article}
 }{}%
 
@@ -35,7 +35,7 @@
 \RequirePackage[pdftex]{graphicx}
 %\RequirePackage{newcent}
 \RequirePackage{array}
-\RequirePackage{bluebook}
+\RequirePackage{bluebook}[2026/06/11]
 
 \newcommand{\@RunMakeIndex}{%
 	\clearpage%

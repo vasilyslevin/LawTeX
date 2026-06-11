@@ -32,7 +32,7 @@
 
 \@ifundefined{SuppressClass}{%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{arbitrationbrief}
+\ProvidesClass{arbitrationbrief}[2026/06/11 v3.0 LawTeX arbitration brief class]
 \LoadClassWithOptions{memoir}
 }{}%
 

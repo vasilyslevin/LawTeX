@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lawmemo}
+\ProvidesClass{lawmemo}[2026/06/11 v3.0 LawTeX memo class]
 \LoadClassWithOptions{article}
 
 \RequirePackage{bluebook}
